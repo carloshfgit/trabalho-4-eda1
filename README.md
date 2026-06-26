@@ -34,6 +34,17 @@ Este documento apresenta o resumo do desenvolvimento, as decisões de projeto ad
 
 ---
 
+## Como rodar
+
+Para obter o código-fonte deste projeto e rodar o programa em sua máquina, realize o clone do repositório pelo terminal:
+
+```bash
+git clone https://github.com/carloshfgit/trabalho-4-eda1.git
+cd trabalho-4-eda
+```
+
+---
+
 ## Requisitos para rodar o programa
 
 - Compilador C++ compatível com C++17 (ex: `g++`).
