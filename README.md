@@ -1,4 +1,5 @@
 # Trabalho 4 - Algoritmos de Busca
+## Carlos Henrique dos Santos Costa Filho - 242042350 - Turma 02 (10h)
 
 Este documento apresenta o resumo do desenvolvimento, as decisões de projeto adotadas e os resultados de validação e desempenho para o Trabalho 4 de Estruturas de Dados.
 
@@ -7,23 +8,23 @@ Este documento apresenta o resumo do desenvolvimento, as decisões de projeto ad
 ## O que foi Feito
 
 1. **Estrutura de Índices em Memória (`RegistroBusca`)**:
-   - Desenvolveu-se uma struct que armazena apenas o código `ibge` (como um inteiro) e o número da `linha` no arquivo CSV.
-   - Ao carregar os dados, apenas essa struct compacta é mantida no vetor de índices, economizando memória. O vetor ocupa menos de 50 KB na memória para todos os 5.570 municípios.
+   - Desenvolvi uma struct que armazena apenas o código `ibge` (como um inteiro) e o número da `linha` no arquivo CSV.
+   - Ao carregar os dados, mantenho apenas essa struct compacta no vetor de índices, economizando memória. O vetor ocupa menos de 50 KB na memória para todos os 5.570 municípios.
 
 2. **Leitura e Conversão de Codificação (Latin1 para UTF-8)**:
    - O arquivo CSV de entrada está codificado em **ISO-8859-1 (Latin1)**.
-   - Criou-se a função auxiliar `latin1_para_utf8` que converte os caracteres estendidos de 8 bits para a codificação UTF-8 multibyte do Linux. Isso garante a exibição correta dos acentos no terminal (ex: "Brasília", "Região", "Metrópole").
+   - Criei a função auxiliar `latin1_para_utf8` que converte os caracteres estendidos de 8 bits para a codificação UTF-8 multibyte do Linux. Isso garante a exibição correta dos acentos no terminal (ex: "Brasília", "Região", "Metrópole").
 
 3. **Algoritmos de Busca e Medição**:
    - **Busca Sequencial**: Percorre o vetor elemento por elemento. Conta as comparações realizadas.
    - **Busca Binária**: Utiliza a ordenação natural do código IBGE do arquivo para buscar em tempo logarítmico $O(\log n)$. Conta as comparações.
-   - A medição do tempo de execução foi realizada com precisão de nanosegundos utilizando a biblioteca `<chrono>`.
+   - Realizei a medição do tempo de execução com precisão de nanosegundos utilizando a biblioteca `<chrono>`.
 
 4. **Exibição dos Detalhes Sob Demanda**:
    - Em vez de manter todos os nomes de municípios e dados populacionais em memória, o programa abre o arquivo CSV em modo leitura apenas quando um município é encontrado, salta até a linha correspondente de forma direta e lê as colunas requeridas (Município, UF, Região, População de 2010 e Porte).
 
 5. **Gerenciamento de Recursos e Memória**:
-   - Implementou-se a liberação explícita de memória com `vetor.clear()` e `vetor.shrink_to_fit()` no encerramento (Opção 3), garantindo que nenhum resíduo de memória permaneça ativo.
+   - Implementei a liberação explícita de memória com `vetor.clear()` e `vetor.shrink_to_fit()` no encerramento (Opção 3), garantindo que nenhum resíduo de memória permaneça ativo.
 
 ---
 
@@ -33,9 +34,40 @@ Este documento apresenta o resumo do desenvolvimento, as decisões de projeto ad
 
 ---
 
+## Requisitos para rodar o programa
+
+- Compilador C++ compatível com C++17 (ex: `g++`).
+- O arquivo de dados `Lista_Municipios_com_IBGE_Brasil_Versao_CSV.csv` deve estar no mesmo diretório do executável.
+
+## Como compilar
+
+No terminal, dentro da pasta do projeto, execute o comando:
+
+```bash
+g++ -Wall -Wextra -pedantic -std=c++17 main.cpp -o programa
+```
+
+Esse comando gera o arquivo executável `programa` (ou `programa.exe` no Windows).
+
+## Como executar
+
+No Linux ou macOS, execute o comando:
+
+```bash
+./programa
+```
+
+No Windows, utilizando Prompt de Comando ou PowerShell, execute:
+
+```powershell
+.\programa.exe
+```
+
+---
+
 ## Resultados e Validação
 
-O programa foi compilado utilizando `g++ -std=c++17 -O2 main.cpp -o programa` e testado com diferentes entradas.
+Compilei o programa utilizando `g++ -std=c++17 -O2 main.cpp -o programa` e realizei testes com diferentes entradas.
 
 ### Cenário 1: Busca pelo primeiro elemento (Alta Floresta D'oeste - IBGE `110001`)
 - **Busca Sequencial**: 1 comparação (30.00 ns) — extremamente rápida por estar na primeira posição.
