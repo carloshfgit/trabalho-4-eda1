@@ -1,40 +1,50 @@
-Nome da Tarefa:
-Trabalho 4 - Algoritmos de Busca
-Descrição:
-A atividade deverá ser enviada na plataforma SIGAA em um único arquivo no formato .pdf.
+# Trabalho 4 - Algoritmos de Busca
+
+## Descrição da Entrega
+
+A atividade deverá ser enviada na plataforma **SIGAA** em um único arquivo no formato **.pdf**.
 
 O documento deve conter:
+- Nome completo do aluno
+- Matrícula
+- Turma
+- Resolução completa do exercício com código-fonte e explicações
 
-nome completo do aluno;
-matrícula;
-turma;
-resolução completa do exercício abaixo com código-fonte e explicações.
- 
+> [!WARNING]
+> Não serão aceitos arquivos em formatos diferentes de `.pdf`.
 
-Não serão aceitos arquivos em formatos diferentes de.pdf.
+---
 
-O arquivo de dados do Censo 2010 do IBGE está ordenado pelo código do município, armazenado no campo IBGE. 
+## Especificação do Problema
 
-Faça um programa com as seguintes opções:
+O arquivo de dados do Censo 2010 do IBGE está ordenado pelo código do município, armazenado no campo `IBGE`. 
 
- 
-Carregar dados
-Carregue um vetor contendo os campos IBGE e Linha, onde Linha representa o número da linha do arquivo.
+Desenvolva um programa que apresente um menu com as seguintes opções:
 
-Consultar município
-Leia um código de município e mostre na tela as seguintes informações:
+### 1. Carregar dados
+Carrega em um vetor em memória os registros contendo os campos:
+- `IBGE`: Código do município
+- `Linha`: Número da linha correspondente no arquivo
 
-Município
-UF
-Região
-População em 2010
-Porte
-Mostre também o tempo de execução da busca utilizando:
+### 2. Consultar município
+Lê um código de município e exibe na tela as seguintes informações associadas:
+- **Município**
+- **UF**
+- **Região**
+- **População em 2010**
+- **Porte**
 
-Busca Binária
-Busca Sequencial
-Sair
+O programa também deve medir e exibir o tempo de execução da busca utilizando os seguintes algoritmos:
+- **Busca Binária**
+- **Busca Sequencial**
 
- 
-Observação: não deixe lixo na memória.
-Dados: http://blog.mds.gov.br/redesuas/lista-de-municipios-brasileiros/
+### 3. Sair
+
+---
+
+> [!IMPORTANT]
+> **Observação:** Não deixe lixo na memória (faça a liberação correta dos recursos alocados).
+
+### Base de Dados
+Os dados para o trabalho podem ser obtidos em:
+[Lista de Municípios Brasileiros (Censo 2010)](http://blog.mds.gov.br/redesuas/lista-de-municipios-brasileiros/)
